@@ -1,0 +1,120 @@
+
+*************************  Case 1  *************************
+
+============================  User 1 =============
+1. Cоздает новый branch shopping_cart и паереходит в него
+
+    git checkout -b shopping_cart
+
+2. Создать файл cart.html  и добавить в него код
+--------------------------------
+
+ <h1>Shopping cart branch</h1>
+
+--------------------------------
+
+3. Сделать commit этого файла
+
+3. Залить новый branch  на Github-repo
+
+      git push -u origin shopping_cart
+  
+
+4. Внести изменения в файл cart.html
+--------------------------------
+  <h1>Shopping cart branch</h1>
+  <p>Paragraph 1</p>
+--------------------------------
+
+5. Сделать commit этого файла
+
+6. Залить новый branch  на Github-repo
+
+      git push
+
+Обратите внимание - мы не указываем
+
+  -u origin shopping_cart
+
+Так как мы указали это в п.3, то теперь все 
+изменения будут заливаться в branch  shopping_cart
+
+
+
+7. Зереключиться на branch  master
+
+     git checkout master
+
+
+
+============================  User 2 =============
+
+1. Выполнить
+
+	git pull
+
+Внимательно прочитать сообщение - там будет указано что мы получили новый branch shopping_cart
+
+2.  Выполнить
+
+    git branch
+
+ и мы не увидим нового branch shopping_cart в списке branches
+ Это потому, что наш локальный репозиторий его не отслеживает (он non tracking)
+
+3. Выполнить git branch -r
+
+   видим что branch shopping_cart есть в списке remote branches
+
+4. Для того чтобы новый branch shopping_cart стал 
+   доступным надо просто в него перейти
+
+     git checkout shopping_cart
+
+5. Выполнить
+
+   git branch
+
+вот теперь мы видим  branch shopping_cart в списке tracking branches
+Можно работать с ним, вносить изменения,  делать push, pull
+
+
+
+***********************************************************
+*************************  Case 2  ************************
+
+============================  User 1 =============
+1. Удаляет remote branch
+
+  Внимательно прочитать сообщение !
+
+  		git push origin --delete shopping_cart
+
+2. В п.1 мы удалили branch на Github-repo и локальный branch
+ 
+
+============================  User_2 =============
+
+1. Выполнить
+
+  git pull
+
+Увидим сообщение
+
+Your configuration specifies to merge with the ref 'refs/heads/shopping_cart'
+from the remote, but no such ref was fetched.
+
+3. Выполнить
+   git remote show origin
+
+   и прочитать сооющение. Там будет напротив shopping_cart указано
+      stale (use 'git remote prune' to remove)
+
+4.  Переключается в branch master
+      git checkout master
+
+5. Выполнить
+   git remote prune origin
+
+6. Выполнить
+   git  branch -D shopping_cart

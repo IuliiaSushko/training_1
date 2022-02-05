@@ -1,0 +1,20 @@
+========== Установить
+1. Visual Studio Code 
+https://code.visualstudio.com/
+
+2. GIT 
+--- Windows => https://git-scm.com/download/win  
+---- Mac => https://git-scm.com/download/mac
+
+3. Nodejs 
+https://nodejs.org/en
+----  !!! Устанавливать LTS версию  - 16.xx.xxLTS ()
+
+После установки Node открыть терминал gitbash и выполнить
+npm install --global browser-sync
+
+==========Зарегестрироваться на  
+ https://github.com/
+
+===== SSH keys
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh

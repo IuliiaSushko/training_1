@@ -1,0 +1,267 @@
+OUTLINER
+https://gsnedders.html5.org/outliner/
+
+
+--- ### Что может получиться без использования секций
+При такой структуре все нормально, outline страниці создается так как это
+предусмотрел разработчик сайта
+
+<h1>this is first H1</h1>
+<h2>this is  H2</h2>
+<h3>this is  H3</h3>
+<h3>this is  H3</h3>
+
+<h1>this is first H1</h1>
+<h2>this is  H2</h2>
+<h3>this is  H3</h3>
+<h3>this is  H3</h3>
+
+
+---------------
+Но вдруг content manager, который считает что он продвинутый и слышал о полезности использования заголовка h1  при создании статьи решил его использовать
+
+<h1>this is first H1</h1>
+    <h2>this is  H2</h2>
+        <h3>this is  H3</h3>
+		<section>
+			<h1>this is  H1 in article</h1>
+			<h3>this is  H3</h3>
+		</section>
+   <h2>this is  H2</h2>
+        <h3>this is  H3</h3>
+        <h3>this is  H3</h3>
+
+
+Структура страницы будет неправильной, поисковые боты неправильно сгрупируют контент, ревелантность страницы (соответствие документа ожиданиям пользователя) будет неправильной.
+
+
+---------------  Используем  секции
+
+
+<h1>this is first H1</h1>
+
+    <article>
+	   <h2>this is  H2</h2>
+	        <section><h3>this is  H3</h3></section>
+	        <section><h3>this is  H1 in article</h3></section>
+	        <section><h3>this is  H3</h3></section>
+    </article>
+
+    <article>
+    	<h2>this is  H2</h2>
+    	     <section> <h3>this is  H3</h3> </section>
+    	     <section> <h3>this is  H3</h3> </section>
+   </article>
+
+-------------------------------------------------
+Вывод -  продвинутый content-manager обязан окончить базовый курс HTML
+
+
+
+
+
+
+-- ##### body - это главная секция документа
+
+
+<section></section>
+
+Получим Untitled Section
+
+----------------------
+-- ###  Секционные элементы
+<!doctype html>
+<nav></nav>
+<section></section>
+<article></article>
+<acide></acide>
+--------------------------
+-- ###  Секционные элементы должны иметь заголовки
+
+<h1>this is H1</h1>
+<nav><h2>Site menu</h2></nav>
+<section><h2>this is section</h2></section>
+<article><h2>this is article</h2></article>
+<aside><h2>this is aside</h2></aside>
+
+----### Секционные элементы можно вкладывать друг в друга,
+-------  при этом будут образовываться новые уровни
+
+<h1>this is H1</h1>
+<nav><h2>Site menu</h2></nav>
+<section>
+	
+	<article>
+		<h2>Article in section</h2>
+		<section><h2>Nested section in article</h2></section>
+	</article>
+</section>
+<article><h2>this is article</h2></article>
+<aside><h2>this is aside</h2></aside>
+
+--- ### DIV не образует новой секции
+<h1>this is first H1</h1>
+<section><h1>this is second H1</h1></section>
+<div>DIV</div>
+<section><h1>DIV whith H1</h1></section>
+<section><h1>this is third H1</h1></section>
+
+
+--- ### Один уровень - нет вложенных секций
+<h1>this is first H1</h1>
+<h1>this is second H1</h1>
+<h1>this is third H1</h1>
+
+---- ###  А теперь если h1 включить в теги section образуется новый уровень
+
+<h1>this is first H1</h1>
+<section><h1>this is second H1</h1></section>
+<section><h1>this is third H1</h1></section>
+
+--## Аналогично предыдущему примеру, но зачем тогда новые секции ?
+<h1>this is first H1</h1>
+<h2>this is second H2</h2>
+<h2>this is third H2</h2>
+
+-------------------------------------
+-- ## В HTML 4  надо было всегда следить за использованим заголовков
+-- ## В HTML 5 каждая секция имеет свою иерархию заголовков h1-h6,
+-- ## что дает возможность в каждой секции использовать
+-- ## элемент h1 ( http://goo.gl/eiOjD )
+
+-------------------------------------
+<h1>this is first H1</h1>
+<section>
+	<h1>this is H1</h2>
+	<h2>this is H2</h2>
+	<h2>this is  H2</h2>
+</section>
+<section>
+	<h1>this is H1</h2>
+	<h2>this is H2</h2>
+	<h2>this is  H2</h2>
+	<h3>this is H3</h3>
+</section>
+<h2>H2 without section</h2>
+-------------------------------
+-- ## Добавить footer с p -> это не секция
+-- ## Добавить в footer  h1 - прервется поток заголовков
+-- ## Чтобы поток был нормальным надо использовать или h2 или секционный элемент
+-------------------------------
+-- ## hgroup (http://goo.gl/7OApw)
+-- ## Элементы h1-h6 включаются в hgroup, если нам
+-- ## не нужно с их помощью формировать иерархию
+
+<hgroup>
+	<h1>this is H1</h1>
+	<h2>this is H2</h2>
+</hgroup>
+-------------------------------
+
+
+--- ### Практическое применение секционнных элементов
+<h1>Our Site</h1>
+	<header>
+		<h1>Welcome to our library</h1>
+	</header>
+	
+	<article>
+		<h2>Our books</h2>
+			<section>
+			<h3>Fantastics</h3>
+				<h4>Fantomas</h4>
+				<h4>Capitan Nemo</h4>
+			</section>
+		<section>
+			<h3>Children's book</h3>
+			<aside>
+				<h3>Save books !!!</h3>
+			</aside>
+				<h4>Brothers Grimm</h4>
+				<h4>Story of two tails</h4></section>
+	</article>
+
+-------------------------------
+И тут сеошники посоветовали владельцу сайта включить рекламу в children books
+так как они плохо продаются
+Реклаиа - это косвенный контент сайта, поэтому делаем так
+
+
+<h1>Our Site</h1>
+<section>
+	<header>
+		<h1>Привет</h1>
+	</header>
+
+	<article>
+		<h2>Our books</h2>
+		<section>
+			<h3>Fantastics</h3>
+				<h4>Fantomas</h4>
+				<h4>Capitan Nemo</h4>
+		</section>
+		<section>
+			<h3>Children's book</h3>
+			    <aside>
+                     <h1>Help us save children books</h1>
+			    </aside>
+				<h4>Brothers Grimm</h4>
+				<h4>Story of two tails</h4>
+				</section>
+	</article>
+
+</section>
+
+
+Структура документа нарушилась
+Задача слушателям - исправить ошибку
+----------------------------------------------------
+
+
+<section>
+	<header>
+		<h1>Welcome to our library</h1>
+	</header>
+
+	<article>
+		<h2>Our books</h2>
+		  <h3>Fantastics</h3>
+					<h4>Fantomas</h4>
+					<h4>Capitan Nemo</h4>
+			
+				<h3>Children's book</h3>
+					<h4>Brothers Grimm</h4>
+					<h4>Story of two tails</h4>
+			
+	</article>
+
+</section>
+
+
+----------------------------------------------------
+
+
+
+
+
+-- ## section root
+
+<h1>Our Site</h1>
+<figure>
+	<h2>Title of img</h2>
+	<img src="..."/>
+</figure>
+<figure>
+	<h2>Title of img</h2>
+	<img src="..."/>
+</figure>
+<figure>
+	<h2>Title of img</h2>
+	<img src="..."/>
+</figure>
+
+
+
+-------------------------------
+
+
