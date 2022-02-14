@@ -1,0 +1,23 @@
+- мирина макета 800px 
+- макет выровнен по центру 
+- текстовые колонки шириной 30%, 35%, 35% соответственно 
+
+- изображение main.jpg должно быть кликабельным 
+  и при click открывать  URL https://www.netlify.com  на новой вкладке  
+
+
+==============📣  Текст
+
+Hi there,
+When Smashing Magazine approached Netlify, they managed a dizzying number of tools across different functional areas of their site including their magazine, content, e-commerce platform, comments engine, subscription service and member login. 
+
+
+6x their site speed, from a load time of 800 ms to just 80 ms 
+Migrate from several disparate tools to a single unified platform
+Build a design they loved without the limitations of WordPress
+Develop the most performant site possible with a focus on reliability and speed.
+
+    
+
+Markus Seyfferth
+CEO, Smashing Magazine
